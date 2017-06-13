@@ -7,10 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading clearfix">
                   {{$post->title}}
+                  @if(Auth::user())
                   {!! form($form) !!}
                   <a class="btn btn-primary pull-right" href="/posts/{{$post->id}}/edit">
                     Edit
                   </a>
+                  @endif
                 </div>
                 <div class="panel-body">
                     <p>
@@ -18,6 +20,12 @@
                     </p>
                     <p>
                         Written by {{$post->user->name}}
+                    </p>
+                    <p>
+                        Tags:
+                        @foreach($post->tags as $t)
+                          {{$t->title}}
+                        @endforeach
                     </p>
                 </div>
             </div>

@@ -15,6 +15,7 @@ class PostCreateForm extends Form
             ->add('user_id', 'hidden', [
               'value' => Auth::user()->id
             ])
+            ->add('tags', 'text')
             ->add('submit', 'submit');
     }
 }
